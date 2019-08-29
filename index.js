@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, WebView } from 'react-native';
+import { View } from 'react-native';
+import AutoHeightWebView from 'react-native-autoheight-webview';
 
 const defaultOptions = {
 	messageStyle: 'none',
@@ -47,24 +48,20 @@ class MathJax extends React.Component {
 			</script>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
-			<div id="formula" style="visibility: hidden;">
+			<div id="formula" style="visibility: hidden;width: 85%;">
 				${content}
 			</div>
 		`;
 	}
 	render() {
 		const html = this.wrapMathjax(this.props.html);
-
-		// Create new props without `props.html` field. Since it's deprecated.
 		const props = Object.assign({}, this.props, { html: undefined });
 
 		return (
-			<View style={{ height: this.state.height, ...props.style }}>
-				<WebView
-					scrollEnabled={false}
-					onMessage={this.handleMessage.bind(this)}
-					source={{ html }}
-					{...props}
+			<View style={{padding: 1}}>
+				<AutoHeightWebView
+					source={{ html: html }}
+					zoomable={false}
 				/>
 			</View>
 		);

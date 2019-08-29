@@ -1,10 +1,13 @@
 {
   "name": "react-native-mathjax",
   "version": "2.0.0",
-  "description": "Render Mathjax content in React Native Webview",
+  "description": "Render Mathjax content in AutoHeightWebView",
   "main": "index.js",
   "scripts": {
     "test": "npm tun test"
+  },
+  "dependencies": {
+    "react-native-autoheight-webview": "^1.2.2"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,7 @@
     "maths",
     "equation"
   ],
-  "author": "Calvin Kei <calvin.conceptz@gmail.com> (https://www.linkedin.com/in/chi-wing-kei-237364140/)",
+  "author": "Calvin Kei",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/calvinkei/react-native-mathjax/issues"
